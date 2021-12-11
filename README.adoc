@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdata4development%2Fiati-workbench.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdata4development%2Fiati-workbench?ref=badge_shield)
+
 = IATI Workbench
 
 _Scripts and tools to investigate IATI data, provide feedback on data quality, etc._
@@ -74,3 +76,7 @@ This should process the input files and produce a raw IATI file in `src/`.
 === Acknowledgements
 
 First inspiration came from https://github.com/KitWallace/AIDVIEW-DB[Kit Wallace's Aidview DB (working with eXist)]
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdata4development%2Fiati-workbench.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdata4development%2Fiati-workbench?ref=badge_large)
