@@ -15,7 +15,11 @@
   "bumpFiles": [
     {
       "filename": "docs/antora.yml",
-      "updater": "docs/antora-version-updater.js"
+      "updater": "helpers/antora-version-updater.js"
+    },
+    {
+      "filename": "sonar-project.properties",
+      "updater": "helpers/sonar-version-updater.js"
     },
     {
       "filename": "this-is-iati-workbench",
