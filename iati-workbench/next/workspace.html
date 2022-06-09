@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Version releases :: IATI workbench</title>
-    <link rel="prev" href="xspec-tests.html">
-    <link rel="next" href="spreadsheets2iati/index.html">
+    <title>Workspace location :: IATI workbench</title>
+    <link rel="prev" href="ant-results.html">
+    <link rel="next" href="xspec-tests.html">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -29,7 +29,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="iati-workbench" data-version="1.8.0">
+<div class="nav-container" data-component="iati-workbench" data-version="next">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -45,13 +45,13 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ant-results.html">Ant results</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="workspace.html">Workspace location</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="xspec-tests.html">Xspec tests</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="version-release.html">Version releases</a>
   </li>
 </ul>
@@ -86,17 +86,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IATI Workbench</span>
-    <span class="version">1.8.0</span>
+    <span class="version">next</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="index.html">IATI Workbench</a>
+      <a class="title" href="../current/index.html">IATI Workbench</a>
       <ul class="versions">
-        <li class="version">
-          <a href="../next/index.html">next</a>
+        <li class="version is-current">
+          <a href="index.html">next</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="index.html">1.8.0</a>
+        <li class="version is-latest">
+          <a href="../current/index.html">1.8.0</a>
         </li>
       </ul>
     </li>
@@ -108,134 +108,115 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
+  <a href="../current/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">IATI Workbench</a></li>
     <li><a href="index.html">Workbench technical reference</a></li>
-    <li><a href="version-release.html">Version releases</a></li>
+    <li><a href="workspace.html">Workspace location</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">next</button>
   <div class="version-menu">
-    <a class="version" href="../next/version-release.html">next</a>
-    <a class="version is-current" href="version-release.html">1.8.0</a>
+    <a class="version is-current" href="workspace.html">next</a>
+    <a class="version" href="../current/workspace.html">1.8.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/main/docs/modules/ROOT/pages/version-release.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/ROOT/pages/workspace.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Version releases</h1>
+<h1 class="page">Workspace location</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>We use <a href="https://github.com/conventional-changelog/standard-version" target="_blank" rel="noopener">Standard Version</a>
-to update version numbers and the CHANGELOG.
-This relies on using the <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a>
-approach to describing git commit message headers.</p>
+<p>When running within a Docker container, the scripts use the directory</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/workspace/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>as the starting point for all subdirectories.</p>
+</div>
+<div class="paragraph">
+<p>To use a subdirectory, the environment property <code>workspace</code> should be set.</p>
+</div>
+<div class="paragraph">
+<p>When running within the container:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ant -Dworkspace=clientA &lt;target&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using the container image with the calling script:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -xml -w clientA &lt;target&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The workspace name can contain multiple levels.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup"><a class="anchor" href="#_setup"></a>Setup</h2>
+<h2 id="_running_on_a_local_machine"><a class="anchor" href="#_running_on_a_local_machine"></a>Running on a local machine</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install the required npm packages</p>
+<p>Consider you have a local machine set up with a directory structure:</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-treeview hljs" data-lang="treeview">~/workspaces
+├── s2i
+│   ├── clientA
+│   │   ├── config
+│   │   ├── dest
+│   │   ├── input
+│   │   ├── output
+│   │   ├── reports
+│   │   ├── src
+│   │   ├── tmp
+│   │   ├── build.xml
+│   │   ├── .gitignore
+│   │   └── README.md
+│   ├── clientB
+│   │   └── ...workspace dirs...
+│   └── ...other clients...
+└── README.md</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_option_1_go_into_each_client_directory_and_run_aida_s2i_there"><a class="anchor" href="#_option_1_go_into_each_client_directory_and_run_aida_s2i_there"></a>Option 1: go into each client directory and run aida-s2i there</h3>
 <div class="literalblock">
 <div class="content">
-<pre>$ npm i</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The file <code>package.json</code> contains the configuration to update the version number in various files.</p>
+<pre>$ cd ~/workspaces/clientA
+$ aida-s2i ...</pre>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_adding_a_next_version"><a class="anchor" href="#_adding_a_next_version"></a>Adding a next version</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When creating a next version, Standard Version will:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>determine the next version number (using semantic versioning);</p>
-</li>
-<li>
-<p>update the version number in several files;</p>
-</li>
-<li>
-<p>add a section to the <code>CHANGELOG.md</code> file;</p>
-</li>
-<li>
-<p>commit these changes;</p>
-</li>
-<li>
-<p>and add the version number as tag in git.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To create a preview release, for instance on the branch <code>develop</code>:</p>
-</div>
+<div class="sect2">
+<h3 id="_option_2_run_aida_s2i_with_w"><a class="anchor" href="#_option_2_run_aida_s2i_with_w"></a>Option 2: run aida-s2i with -w</h3>
 <div class="literalblock">
 <div class="content">
-<pre>$ npm run release:preview</pre>
+<pre>$ aida-s2i -w s2i/clientA ...</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This will create a prerelease version number for the next version,
-based on the commits so far:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If there are only bug fixes, the it may go from <code>1.6.1</code> to <code>1.6.2-0</code>.</p>
-</li>
-<li>
-<p>If there are also new features added, it may go to <code>1.7.0-0</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To create a next release, typically on branch <code>main</code>:</p>
-</div>
-<div class="paragraph">
-<p>$ npm run release:main</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Each preview release will create its own section in the changelog.</p>
-</div>
-<div class="paragraph">
-<p>For the full release, we may combine all entries into a single section for that version.</p>
-</div>
-<div class="paragraph">
-<p>This requires some additional work, amending the release commit
-and moving the version tag.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="xspec-tests.html">Xspec tests</a></span>
-  <span class="next"><a href="spreadsheets2iati/index.html">Spreadsheets2IATI</a></span>
+  <span class="prev"><a href="ant-results.html">Ant results</a></span>
+  <span class="next"><a href="xspec-tests.html">Xspec tests</a></span>
 </nav>
 </article>
   </div>
