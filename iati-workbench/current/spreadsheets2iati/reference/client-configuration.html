@@ -158,20 +158,9 @@ change this to reading the variables from a JSON file in the workspace.
 </tr>
 </table>
 </div>
-<div class="listingblock kroki-error">
+<div class="imageblock kroki">
 <div class="content">
-<pre>folder workspace {
-    [sheets-iati] ..&gt; [csvxml-iati (1)]: include
-}
-
-folder engine {
-    [spreadsheet-iati/\ncsvxml-s2i (2)] ..&gt; [spreadsheet-iati/\ndefault-templates-act]: include
-    [spreadsheet-iati/\ncsvxml-s2i (2)] ..&gt; [spreadsheet-iati/\ndefault-templates-org]: include
-    [spreadsheet-iati/\ncsvxml-s2i (2)] ..&gt; [spreadsheet-iati/\nclient-templates-org]: include
-    [spreadsheet-iati/\ncsvxml-s2i (2)] ..&gt; [lib/iati.me/\ncsvxml-iati (3)]: import
-}
-
-[sheets-iati] .&gt; [spreadsheet-iati/\ncsvxml-s2i (2)]: import</pre>
+<img src="../_images/diag-cf35ccab5830e9bb36ddc8e5b5f92287a408f153.svg" alt="Diagram">
 </div>
 </div>
 <div class="colist arabic">

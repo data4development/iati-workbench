@@ -156,27 +156,11 @@ for IATI activities and IATI organisations.</p>
 <div class="paragraph">
 <p>The process breaks down in a couple of components.</p>
 </div>
-<div class="listingblock kroki-error">
-<div class="title">Sequence for <code>spreadsheet-iati</code></div>
+<div class="imageblock kroki">
 <div class="content">
-<pre>start
-
-partition spreadsheet-iati {
-$group_main_color:gather-input-files;
-note right: Prepare input files from input/ to tmp/
-
-$group_main_color:generate-iati-partials;
-note right: Generate IATI for each file individually
-
-$group_main_color:create-iati-output;
-note right
-  Merge generated IATI into one file and
-  (not in AIDA) filter out into valid and invalid activities
-end note
-}
-
-stop</pre>
+<img src="_images/diag-259d99f475b18b17234e9c321fd3109539af99cd.svg" alt="Sequence for `spreadsheet-iati`">
 </div>
+<div class="title">Figure 1. Sequence for <code>spreadsheet-iati</code></div>
 </div>
 <div class="sect2">
 <h3 id="_gather_input_files"><a class="anchor" href="#_gather_input_files"></a>Gather input files</h3>
@@ -197,35 +181,9 @@ and prepares them for processing, in a flat <code>tmp</code> folder.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock kroki-error">
+<div class="imageblock kroki">
 <div class="content">
-<pre>start
-
-$group_main_color:gather-input-files;
-fork
-  partition sheets-csvxml {
-    fork
-      $node_1_main_color:input/*.xsl{x} ]
-      :excel-csv;
-      $node_1_main_color:tmp/*.csv]
-    fork again
-      $node_1_main_color:input/*.csv]
-      :csv-csv;
-      $node_1_main_color:tmp/*.csv]
-    end fork
-
-    :csv-csvxml;
-    note: using basex
-    $node_1_main_color:tmp/*.csv.xml]
-  }
-fork again
-  partition collect-iati-files {
-    $node_1_main_color:input/**/*.{iati|akvo}.xml ]
-    :copy;
-    $node_1_main_color:tmp/*.{iati|akvo}.xml ]
-  }
-end fork
-(1)</pre>
+<img src="_images/diag-6a39f5a35d30906532f9f1dd2a0c0be2f307e28c.svg" alt="Diagram">
 </div>
 </div>
 </div>
@@ -236,41 +194,9 @@ end fork
 These intermediary files are not valid IATI yet,
 but contain the IATI representation for the particular input file.</p>
 </div>
-<div class="listingblock kroki-error">
+<div class="imageblock kroki">
 <div class="content">
-<pre>(1)
-$group_main_color:generate-iati-partials;
-note: extension point
-fork
-  partition csvxml-s2i {
-    $node_1_main_color:tmp/*.csv.xml]
-
-    $important_color:config/csvxml-iati.xslt]
-    note
-      Can include or override
-      default templates
-    end note
-    :csvxml-s2i;
-  }
-fork again
-  partition iati-s2i {
-    $node_1_main_color:tmp/*.iati.xml]
-    :iati-s2i;
-  }
-fork again
-  partition akvo-s2i {
-    $node_1_main_color:tmp/*.akvo.xml]
-    if (Akvo-specific config file exists) then (yes)
-      $important_color:config/akvo-s2i.xslt]
-      :akvo-s2i;
-    else (no)
-      :iati-s2i;
-    endif
-  }
-end fork
-
-$node_1_main_color:tmp/*.generated.xml]
-(2)</pre>
+<img src="_images/diag-96b06a32a4b9451142ea84611c9d67a7799a43e8.svg" alt="Diagram">
 </div>
 </div>
 </div>
@@ -280,15 +206,9 @@ $node_1_main_color:tmp/*.generated.xml]
 <p>This step combines all "partial IATI files" into one IATI activities and one IATI organisations file.
 These files can contain activities that are not IATI schema-compliant.</p>
 </div>
-<div class="listingblock kroki-error">
+<div class="imageblock kroki">
 <div class="content">
-<pre>(2)
-$group_main_color:create-iati-output;
-
-:merge-iati;
-$node_1_main_color:src/iati-{activities, organisation}.xml]
-
-stop</pre>
+<img src="_images/diag-49c8df050c4f37f8aade416d725a21ad2b1db97f.svg" alt="Diagram">
 </div>
 </div>
 </div>
@@ -301,7 +221,7 @@ stop</pre>
 <div class="content">
 <img src="_images/ant-spreadsheet-iati.svg" alt="image$ant spreadsheet iati">
 </div>
-<div class="title">Figure 1. The dependencies of Ant targets involved in <code>spreadsheet-iati</code></div>
+<div class="title">Figure 2. The dependencies of Ant targets involved in <code>spreadsheet-iati</code></div>
 </div>
 </div>
 </div>
