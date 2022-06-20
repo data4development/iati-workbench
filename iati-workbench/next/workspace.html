@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Workspace location :: IATI workbench</title>
-    <link rel="prev" href="ant-results.html">
-    <link rel="next" href="development/index.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="ant-results.html">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -40,13 +40,13 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Workbench technical reference</a>
+    <a class="nav-link" href="index.html">Introduction</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="ant-results.html">Ant results</a>
-  </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="workspace.html">Workspace location</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ant-results.html">Ant results</a>
   </li>
 </ul>
   </li>
@@ -125,7 +125,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">IATI Workbench</a></li>
-    <li><a href="index.html">Workbench technical reference</a></li>
+    <li><a href="index.html">Introduction</a></li>
     <li><a href="workspace.html">Workspace location</a></li>
   </ul>
 </nav>
@@ -147,7 +147,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>When running within a Docker container, the scripts use the directory</p>
+<p>Within the Docker container, the scripts use the directory</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -155,10 +155,26 @@
 </div>
 </div>
 <div class="paragraph">
-<p>as the starting point for all subdirectories.</p>
+<p>as the starting point for all subdirectories with data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When running via the helper script,
+the current directory is mounted into this location.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>To use a subdirectory, the environment property <code>workspace</code> should be set.</p>
+<p>To use a subdirectory in the workspace,
+the environment property <code>workspace</code> should be set.</p>
 </div>
 <div class="paragraph">
 <p>When running within the container:</p>
@@ -190,22 +206,20 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-treeview hljs" data-lang="treeview">~/workspaces
-├── s2i
-│   ├── clientA
-│   │   ├── config
-│   │   ├── dest
-│   │   ├── input
-│   │   ├── output
-│   │   ├── reports
-│   │   ├── src
-│   │   ├── tmp
-│   │   ├── build.xml
-│   │   ├── .gitignore
-│   │   └── README.adoc
-│   ├── clientB
-│   │   └── ...workspace dirs...
-│   └── ...other clients...
-└── README.md</code></pre>
+├── clientA
+│   ├── config
+│   ├── dest
+│   ├── input
+│   ├── output
+│   ├── reports
+│   ├── src
+│   ├── tmp
+│   ├── build.xml
+│   ├── .gitignore
+│   └── README.adoc
+├── clientB
+│   └── ...workspace dirs...
+└── ...other clients...</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -218,18 +232,19 @@ $ aida-s2i ...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_option_2_run_aida_s2i_with_w"><a class="anchor" href="#_option_2_run_aida_s2i_with_w"></a>Option 2: run aida-s2i with -w</h3>
+<h3 id="_option_2_run_aida_s2i_with_w_from_the_main_workspaces_directory"><a class="anchor" href="#_option_2_run_aida_s2i_with_w_from_the_main_workspaces_directory"></a>Option 2: run aida-s2i with -w from the main workspaces directory</h3>
 <div class="literalblock">
 <div class="content">
-<pre>$ aida-s2i -w s2i/clientA ...</pre>
+<pre>$ cd ~/workspaces
+$ aida-s2i -w s2i/clientA ...</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="ant-results.html">Ant results</a></span>
-  <span class="next"><a href="development/index.html">Development</a></span>
+  <span class="prev"><a href="index.html">Introduction</a></span>
+  <span class="next"><a href="ant-results.html">Ant results</a></span>
 </nav>
 </article>
   </div>
