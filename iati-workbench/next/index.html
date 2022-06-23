@@ -81,6 +81,9 @@
     <span class="nav-text">Reference</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="spreadsheets2iati/reference/demo-workspace.html">Demo workspace files</a>
+  </li>
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="spreadsheets2iati/reference/date-formats.html">Date formats</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -174,25 +177,22 @@ to turn spreadsheets and existing IATI files into new IATI data files.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Container service</dt>
+<dt class="hdlist1">Run as a Docker container</dt>
 <dd>
-<p>It runs within a container:
-all the necessary software runs within an isolated environment.</p>
+<p>It runs all the necessary software within an isolated environment.</p>
 </dd>
-<dt class="hdlist1">Build tool</dt>
+<dt class="hdlist1">Run as a software build tool</dt>
 <dd>
-<p>It runs as a software build tool:
-it transforms input <em>source files</em> into output <em>compiled files</em>.</p>
+<p>It transforms input <em>source files</em> into output <em>compiled files</em>,
+via one or more <em>targets</em>.</p>
 </dd>
 </dl>
 </div>
 <div class="sect2">
-<h3 id="_running_as_container_service"><a class="anchor" href="#_running_as_container_service"></a>Running as "container service"</h3>
+<h3 id="_run_as_a_docker_container"><a class="anchor" href="#_run_as_a_docker_container"></a>Run as a Docker container</h3>
 <div class="paragraph">
-<p>The main code is intended to be used as Docker container.</p>
-</div>
-<div class="paragraph">
-<p>This container should have a <em>workspace directory</em> mounted,
+<p>The main code is intended to be used as Docker container.
+This container should have a <em>workspace directory</em> mounted,
 where data and configuration files are stored.</p>
 </div>
 <div class="olist arabic">
@@ -207,70 +207,70 @@ and use it within a directory on your local machine via a helper script.</p>
 <li>
 <p>It can also be used in a cloud environment, with an appropriate sidecar or wrapper.</p>
 <div class="paragraph">
-<p>In this case, you will need to add an appropriate API and file and process handling yourself.</p>
+<p>In this case, you will need to add an appropriate API, and file and process handling yourself.</p>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>This documentation mainly describes the first scenario.</p>
+<p>This documentation describes the first scenario.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_running_as_build_tool"><a class="anchor" href="#_running_as_build_tool"></a>Running as "build tool"</h3>
+<h3 id="_run_as_software_build_tool"><a class="anchor" href="#_run_as_software_build_tool"></a>Run as software build tool</h3>
 <div class="paragraph">
-<p>The tools are split into steps of a "compilation pipeline".</p>
+<p>The tools are split into steps of a "compilation pipeline".
+The steps in the pipeline are typically small scripts and XSLT transformations.</p>
 </div>
 <div class="paragraph">
 <p>We use Ant as orchestration tool.
 Other orchestration systems would be possible too.</p>
 </div>
-<div class="paragraph">
-<p>The steps in the pipeline are typically small scripts and XSLT transformations.</p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_running_on_a_local_machine"><a class="anchor" href="#_running_on_a_local_machine"></a>Running on a local machine</h2>
+<h2 id="_quick_start_on_a_local_machine"><a class="anchor" href="#_quick_start_on_a_local_machine"></a>Quick start on a local machine</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For now, you need to follow the steps for <a href="development/index.html#_setting_up_a_development_environment" class="xref page">Setting up a development environment</a>,
-to create a local Docker container image.</p>
+<p>For now, you need to follow the steps for <a href="development/index.html#_setting_up_a_development_environment" class="xref page">Setting up a development environment</a>.
+This will create a local Docker container image,
+and make the helper script available.</p>
 </div>
 <div class="paragraph">
 <p>You can then run the engine in a container on your local machine,
 using the helper script.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a test workspace directory and go into that directory</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ mkdir ~/test-workspace &amp;&amp; cd ~/test-workspace</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the structure of workspace directories, and add the demo spreadsheet templates.</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i add-templates</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run your first conversion</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i spreadsheet-iati</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
-<p>By default, the current directory will be mounted as <em>workspace</em>.</p>
-</div>
-<div class="literalblock">
-<div class="title">List the available options in the engine</div>
-<div class="content">
-<pre>$ aida-s2i -p</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="title">Create a skeleton structure of workspace directories</div>
-<div class="content">
-<pre>$ aida-s2i init</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next steps</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Look at handling multiple workspaces via the <a href="workspace.html" class="xref page">Workspace location</a>.</p>
-</li>
-<li>
-<p>The build process creates <a href="ant-results.html" class="xref page">Ant results</a> that can be read as XML or JSON data.</p>
-</li>
-</ul>
+<p>The generated IATI files will be placed in the <code>src/</code> directory in your workspace.</p>
 </div>
 </div>
 </div>

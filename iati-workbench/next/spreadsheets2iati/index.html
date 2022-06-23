@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Spreadsheets2IATI :: IATI workbench</title>
     <link rel="prev" href="../development/version-release.html">
-    <link rel="next" href="reference/date-formats.html">
+    <link rel="next" href="reference/demo-workspace.html">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -81,6 +81,9 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Reference</span>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="reference/demo-workspace.html">Demo workspace files</a>
+  </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="reference/date-formats.html">Date formats</a>
   </li>
@@ -160,7 +163,32 @@ for IATI activities and IATI organisations.</p>
 <p>Create a directory for the workspace if it does not exist.</p>
 </div>
 <div class="paragraph">
-<p>Initialise the workspace, for instance with <code>aida-s2i init</code></p>
+<p>Set up the directories in the workspace:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i init</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Optionally, add the demo workspace spreadsheet templates and configuration.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i add-templates</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Adding the templates will not overwrite newer files in your workspace.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -250,7 +278,7 @@ These files can contain activities that are not IATI schema-compliant.</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../development/version-release.html">Version releases</a></span>
-  <span class="next"><a href="reference/date-formats.html">Date formats</a></span>
+  <span class="next"><a href="reference/demo-workspace.html">Demo workspace files</a></span>
 </nav>
 </article>
   </div>
