@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Spreadsheets2IATI :: IATI workbench</title>
-    <link rel="prev" href="../development/iati.html">
-    <link rel="next" href="reference/demo-workspace.html">
+    <title>Xspec tests :: IATI workbench</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="documentation.html">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -56,19 +56,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../development/index.html">Development</a>
+    <a class="nav-link" href="index.html">Development</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/testing.html">Xspec tests</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="testing.html">Xspec tests</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/documentation.html">Antora and Asciidoc documentation</a>
+    <a class="nav-link" href="documentation.html">Antora and Asciidoc documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/version-release.html">Version releases</a>
+    <a class="nav-link" href="version-release.html">Version releases</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/iati.html">IATI files in the engine</a>
+    <a class="nav-link" href="iati.html">IATI files in the engine</a>
   </li>
 </ul>
   </li>
@@ -76,22 +76,22 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Spreadsheets2IATI</a>
+    <a class="nav-link" href="../spreadsheets2iati/index.html">Spreadsheets2IATI</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Reference</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="reference/demo-workspace.html">Demo workspace files</a>
+    <a class="nav-link" href="../spreadsheets2iati/reference/demo-workspace.html">Demo workspace files</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="reference/date-formats.html">Date formats</a>
+    <a class="nav-link" href="../spreadsheets2iati/reference/date-formats.html">Date formats</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="reference/client-configuration.html">Client configuration</a>
+    <a class="nav-link" href="../spreadsheets2iati/reference/client-configuration.html">Client configuration</a>
   </li>
 </ul>
   </li>
@@ -131,157 +131,141 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">IATI Workbench</a></li>
-    <li><a href="index.html">Spreadsheets2IATI</a></li>
+    <li><a href="index.html">Development</a></li>
+    <li><a href="testing.html">Xspec tests</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">1.9.0-0</button>
   <div class="version-menu">
-    <a class="version" href="../../next/spreadsheets2iati/index.html">next</a>
-    <a class="version is-current" href="index.html">1.9.0-0</a>
+    <a class="version" href="../../next/development/testing.html">next</a>
+    <a class="version is-current" href="testing.html">1.9.0-0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/main/docs/modules/spreadsheets2iati/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/main/docs/modules/development/pages/testing.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Spreadsheets2IATI</h1>
+<h1 class="page">Xspec tests</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Combine and convert spreadsheets and IATI files into a single set of files
-for IATI activities and IATI organisations.</p>
+<p>The XSLT transformations can be unit tested with the <a href="https://xspec.io/" target="_blank" rel="noopener">Xspec framework</a>.
+The Xspec library is included as git submodule under <code>lib/xspec</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup_notes"><a class="anchor" href="#_setup_notes"></a>Setup notes</h2>
+<h2 id="_test_setup"><a class="anchor" href="#_test_setup"></a>Test setup</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_workspace"><a class="anchor" href="#_workspace"></a>Workspace</h3>
 <div class="paragraph">
-<p>Create a directory for the workspace if it does not exist.</p>
+<p>The main test scenarios are organised under <code>tests/</code>.</p>
 </div>
 <div class="paragraph">
-<p>Set up the directories in the workspace:</p>
+<p>Each main scenario includes smaller subsets in subfolders.</p>
+</div>
+<div class="paragraph">
+<p>The main  <code>build.xml</code> file contains calls to test each of the main scenarios.</p>
+</div>
+<div class="paragraph">
+<p>To run all tests:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ aida-s2i init</pre>
+<pre>$ aida-s2i tests</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Optionally, add the demo workspace spreadsheet templates and configuration.</p>
+<p>It is also possible to run the tests in "silent mode".
+This will only show the totals for the test results.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ aida-s2i add-templates</pre>
+<pre>$ aida-s2i -S tests</pre>
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="listingblock">
+<div class="title">Typical output of a silent run of the tests</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Running /home/username/bin/aida-s2i -S tests
+
+Buildfile: /home/iati-workbench/build.xml
+Testing lib-csvxml-s2i.xspec [t]
+
+passed: 32 / pending: 4 / failed: 0 / total: 36
+Testing merge-activities.xspec [t]
+
+passed: 23 / pending: 0 / failed: 0 / total: 23
+Testing default-templates.xspec [t]
+
+passed: 65 / pending: 0 / failed: 0 / total: 65
+Xspec result files: tmp/csvxml-s2i-result.html;tmp/default-templates-result.html;tmp/lib-csvxml-s2i-result.html;tmp/merge-activities-result.html;tmp/merge-generated-files-result.html</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_reports"><a class="anchor" href="#_test_reports"></a>Test reports</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The HTML reports of the test results are copied into the <code>tmp/</code> directory of the workspace.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scenarios"><a class="anchor" href="#_scenarios"></a>Scenarios</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://github.com/xspec/xspec/wiki">Xspec wiki</a> has documentation about writing scenarios.</p>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Adding the templates will not overwrite newer files in your workspace.
+<div class="paragraph">
+<p>The <code>default-templates.xspec</code> scenario imports tests for all different input files.</p>
+</div>
+<div class="paragraph">
+<p>This requires setting the proper filename as XSLT parameter for each type of input file.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we add the <code>&lt;x:param&gt;</code> in each scenario,
+but also have to include the attribute <code>run-as="external"</code> in the main scenario.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An Xspec test scenario can only process test one XSLT file.
+This file is specified in the <code>&lt;x:description stylesheet="&#8230;&#8203;"&gt;</code> attribute of that scenario.</p>
+</div>
+<div class="paragraph">
+<p>Xspec files imported in a main scenario have their own stylesheet attribute.
+However, these are ignored when running the main scenario.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_spreadsheets2iati"><a class="anchor" href="#_spreadsheets2iati"></a>Spreadsheets2IATI</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The conversion process is initiated by a local call of <code>aida-s2i</code> in the workspace.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ aida-s2i spreadsheet-iati</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The process breaks down in a couple of components.</p>
-</div>
-<div class="imageblock kroki">
-<div class="content">
-<img src="_images/diag-259d99f475b18b17234e9c321fd3109539af99cd.svg" alt="Sequence for `spreadsheet-iati`">
-</div>
-<div class="title">Figure 1. Sequence for <code>spreadsheet-iati</code></div>
-</div>
-<div class="sect2">
-<h3 id="_gather_input_files"><a class="anchor" href="#_gather_input_files"></a>Gather input files</h3>
-<div class="paragraph">
-<p>This step takes files from the input folder,
-and prepares them for processing, in a flat <code>tmp</code> folder.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Excel files are converted into CSV.</p>
-</li>
-<li>
-<p>Excel and CSV are then converted into an XML format.</p>
-</li>
-<li>
-<p>Akvo and IATI XML files are copied.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock kroki">
-<div class="content">
-<img src="_images/diag-6a39f5a35d30906532f9f1dd2a0c0be2f307e28c.svg" alt="Diagram">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_generate_iati_partials"><a class="anchor" href="#_generate_iati_partials"></a>Generate IATI partials</h3>
-<div class="paragraph">
-<p>This step transforms prepared input files into "partial IATI" files.
-These intermediary files are not valid IATI yet,
-but contain the IATI representation for the particular input file.</p>
-</div>
-<div class="imageblock kroki">
-<div class="content">
-<img src="_images/diag-77afb69fa1594b9c1ae886bace615677586bd43a.svg" alt="Diagram">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_create_iati_output"><a class="anchor" href="#_create_iati_output"></a>Create IATI output</h3>
-<div class="paragraph">
-<p>This step combines all "partial IATI files" into one IATI activities and one IATI organisations file.
-These files can contain activities that are not IATI schema-compliant.</p>
-</div>
-<div class="imageblock kroki">
-<div class="content">
-<img src="_images/diag-49c8df050c4f37f8aade416d725a21ad2b1db97f.svg" alt="Diagram">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ant_targets_in_the_iati_workbench"><a class="anchor" href="#_ant_targets_in_the_iati_workbench"></a>Ant targets in the IATI Workbench</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="_images/ant-spreadsheet-iati.svg" alt="image$ant spreadsheet iati">
-</div>
-<div class="title">Figure 2. The dependencies of Ant targets involved in <code>spreadsheet-iati</code></div>
-</div>
-</div>
-</div>
 <nav class="pagination">
-  <span class="prev"><a href="../development/iati.html">IATI files in the engine</a></span>
-  <span class="next"><a href="reference/demo-workspace.html">Demo workspace files</a></span>
+  <span class="prev"><a href="index.html">Development</a></span>
+  <span class="next"><a href="documentation.html">Antora and Asciidoc documentation</a></span>
 </nav>
 </article>
   </div>
