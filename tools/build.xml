@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  IATI workbench: produce and use IATI data
+  Copyright (C) 2016-2022, drostan.org and data4development.org
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<project name="tools">
+  <target name="yed"
+          description="Generate GraphML graphs for use in yEd."
+          depends="graphml">
+    <echo level="info">Generate yEd-enriched files from GraphML sources.</echo>
+    <dependset>
+      <sources>
+        <file file="tools/graphml-yed.xslt"/>
+      </sources>
+      <targetfileset dir="${ws}/output" includes="*.graphml"/>
+    </dependset>
+    <xslt
+        basedir="${ws}/tmp/"
+        includes="*.graphml"
+        destdir="${ws}/output/"
+        extension=".graphml"
+        style="tools/graphml-yed.xslt"
+    />
+  </target>
+
+  <target name="graphml" depends="filtered">
+    <echo level="info">Generate GraphML files from filtered IATI sources.</echo>
+    <basexpipe xquery="tools/organisation-graph.xq" from="*.filtered.xml" to="*.graphml"/>
+  </target>
+
+  <target name="filtered">
+    <dependset>
+      <srcfileset dir="map" includes="*.xqm"/>
+      <targetfileset dir="${ws}/tmp" includes="*.filtered.xml"/>
+    </dependset>
+    <basexpipe xquery="tools/organisations.xq" src="${ws}/src" from="*.xml" to="*.filtered.xml"/>
+  </target>
+</project>

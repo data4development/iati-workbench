@@ -1,0 +1,66 @@
+= IATI Tools
+
+Additional tools for IATI data.
+
+This section contains a few additional tools to work with IATI data.
+They are prototypes, used in workshops and for data migration.
+
+== Docker setup
+
+First, make sure your source directory is checked out for this branch.
+
+Then, create a Docker container image as explained in the
+xref:development:index.adoc#_setting_up_a_development_environment[]
+section, specifically for this branch.
+
+The last step in the process above will look like this:
+
+  $ aida-s2i -d -t tools build
+
+This should generate a separate image with version tag `tools`.
+
+== Network diagrams
+
+We use the https://www.yworks.com/products/yed[yEd graph editor]
+to generate network diagrams of IATI data files.
+This tool can be used for free,
+and installed on a local machine.
+
+`yEd` lets the user build hierarchical graphs.
+This allows us to group IATI activities within IATI organisations.
+The resulting diagram can be manually cleaned up,
+and saved as PNG or SVG image.
+
+In the SVG version, we add clickable links to activities and organisations.
+
+* Activities try to open a local HTML page for the activity.
++
+[NOTE]
+====
+Local pages for activities are not implemented in this version.
+
+They could also link to a d-portal page,
+although originally, we supported organisations to review their activity
+before it was available on d-portal.
+====
+
+* Organisations link to the d-portal page for the organisation,
+based on their identifier.
+
+=== How to run
+
+. Go into a workspace directory.
+
+. Make sure there are one or more IATI files in the `src/` directory.
++
+Typically, this will be an IATI file generated with the S2I conversion tool.
+
+. Generate a network diagram:
++
+  $ aida-s2i -t tools yed
+
+. Start `yEd` and open the appropriate `*.graphml` file in the `output/` directory.
++
+All information will be centered and overlapping in the image.
+Through the `Layout` menu `Hierarchical`, or the key combination kbd:[Alt+Shift+H],
+the graph can be rendered as either left-to-right, or as top-down overview.

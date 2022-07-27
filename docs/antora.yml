@@ -1,8 +1,9 @@
 name: iati-workbench
 title: IATI Workbench
-version: 'next'
+version: 'tools'
 prerelease: true
 nav:
 - modules/ROOT/nav.adoc
 - modules/development/nav.adoc
 - modules/spreadsheets2iati/nav.adoc
+- modules/tools/nav.adoc

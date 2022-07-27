@@ -42,6 +42,7 @@
   -->
   <import file="lib/build.xml"/>
   <import file="spreadsheet-iati/build.xml"/>
+  <import file="tools/build.xml"/>
   <import file="${ws}/config/build.iati-workbench.xml" optional="yes"/>
 
   <!-- Xspec tests -->
