@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IATI Tools :: IATI workbench</title>
+    <link rel="prev" href="../spreadsheets2iati/reference/client-specific-templates.html">
+    <meta name="generator" content="Antora 3.0.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">IATI workbench</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="iati-workbench" data-version="tools">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">IATI Workbench</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspace.html">Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ant-results.html">Ant results</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../development/index.html">Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../development/testing.html">Xspec tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../development/documentation.html">Antora and Asciidoc documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../development/version-release.html">Version releases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../development/iati.html">IATI files in the engine</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../spreadsheets2iati/index.html">Spreadsheets2IATI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../spreadsheets2iati/reference/demo-workspace.html">Demo workspace files</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../spreadsheets2iati/reference/date-formats.html">Date formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../spreadsheets2iati/reference/client-configuration.html">Client configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../spreadsheets2iati/reference/client-specific-templates.html">Client-specific templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">IATI Tools</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">IATI Workbench</span>
+    <span class="version">tools</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/index.html">IATI Workbench</a>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">tools</a>
+        </li>
+        <li class="version">
+          <a href="../../next/index.html">next</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../current/index.html">1.9.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">IATI Workbench</a></li>
+    <li><a href="index.html">IATI Tools</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">tools</button>
+  <div class="version-menu">
+    <a class="version is-current" href="index.html">tools</a>
+    <a class="version is-missing" href="../../next/index.html">next</a>
+    <a class="version is-missing" href="../../current/index.html">1.9.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/feature/iati-tools/docs/modules/tools/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">IATI Tools</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Additional tools for IATI data.</p>
+</div>
+<div class="paragraph">
+<p>This section contains a few additional tools to work with IATI data.
+They are prototypes, used in workshops and for data migration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_docker_setup"><a class="anchor" href="#_docker_setup"></a>Docker setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First, make sure your source directory is checked out for this branch.</p>
+</div>
+<div class="paragraph">
+<p>Then, create a Docker container image as explained in the
+<a href="../development/index.html#_setting_up_a_development_environment" class="xref page">development:index.adoc#_setting_up_a_development_environment</a>
+section, specifically for this branch.</p>
+</div>
+<div class="paragraph">
+<p>The last step in the process above will look like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -d -t tools build</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should generate a separate image with version tag <code>tools</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iati_to_s2i"><a class="anchor" href="#_iati_to_s2i"></a>IATI to S2I</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We can generate (most of) the spreadsheet template contents for an organisation
+based on their existing IATI data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The ultimate goal is to provide full round-trip conversions
+for both activities and organisations.</p>
+</div>
+<div class="paragraph">
+<p>However, the current conversion from IATI data to our templates is not fully
+up to date with the reverse conversion.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_how_to_run"><a class="anchor" href="#_how_to_run"></a>How to run</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go into a workspace directory.</p>
+</li>
+<li>
+<p>Make sure there are one or more IATI files in the <code>src/</code> directory.</p>
+<div class="paragraph">
+<p>Typically, this will be an IATI file generated by for instance Aidstream.</p>
+</div>
+</li>
+<li>
+<p>Generate Excel spreadsheets:</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -t tools iati-office</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The resulting spreadsheets will be put into the <code>output/</code> directory.
+The file names will be the base name of the source file,
+followed by the expected template file name for a particular section.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_network_diagrams"><a class="anchor" href="#_network_diagrams"></a>Network diagrams</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We use the <a href="https://www.yworks.com/products/yed">yEd graph editor</a>
+to generate network diagrams of IATI data files.
+This tool can be used for free,
+and installed on a local machine.</p>
+</div>
+<div class="paragraph">
+<p><code>yEd</code> lets the user build hierarchical graphs.
+This allows us to group IATI activities within IATI organisations.
+The resulting diagram can be manually cleaned up,
+and saved as PNG or SVG image.</p>
+</div>
+<div class="paragraph">
+<p>In the SVG version, we add clickable links to activities and organisations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Activities try to open a local HTML page for the activity.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Local pages for activities are not implemented in this version.</p>
+</div>
+<div class="paragraph">
+<p>They could also link to a d-portal page,
+although originally, we supported organisations to review their activity
+before it was available on d-portal.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Organisations link to the d-portal page for the organisation,
+based on their identifier.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_how_to_run_2"><a class="anchor" href="#_how_to_run_2"></a>How to run</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go into a workspace directory.</p>
+</li>
+<li>
+<p>Make sure there are one or more IATI files in the <code>src/</code> directory.</p>
+<div class="paragraph">
+<p>Typically, this will be an IATI file generated with the S2I conversion tool.</p>
+</div>
+</li>
+<li>
+<p>Generate a network diagram:</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -t tools yed</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start <code>yEd</code> and open the appropriate <code>*.graphml</code> file in the <code>output/</code> directory.</p>
+<div class="paragraph">
+<p>All information will be centered and overlapping in the image.
+Through the <code>Layout</code> menu <code>Hierarchical</code>, or the key combination <span class="keyseq"><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd></span>,
+the graph can be rendered as either left-to-right, or as top-down overview.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../spreadsheets2iati/reference/client-specific-templates.html">Client-specific templates</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

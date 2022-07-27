@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Antora and Asciidoc documentation :: IATI workbench</title>
-    <link rel="prev" href="testing.html">
-    <link rel="next" href="version-release.html">
+    <title>IATI files in the engine :: IATI workbench</title>
+    <link rel="prev" href="version-release.html">
+    <link rel="next" href="../spreadsheets2iati/index.html">
     <meta name="generator" content="Antora 3.0.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -29,7 +29,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="iati-workbench" data-version="next">
+<div class="nav-container" data-component="iati-workbench" data-version="tools">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -61,13 +61,13 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="testing.html">Xspec tests</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="documentation.html">Antora and Asciidoc documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="version-release.html">Version releases</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="iati.html">IATI files in the engine</a>
   </li>
 </ul>
@@ -102,23 +102,30 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tools/index.html">IATI Tools</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IATI Workbench</span>
-    <span class="version">next</span>
+    <span class="version">tools</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="../../current/index.html">IATI Workbench</a>
       <ul class="versions">
-        <li class="version">
-          <a href="../../tools/index.html">tools</a>
-        </li>
         <li class="version is-current">
-          <a href="../index.html">next</a>
+          <a href="../index.html">tools</a>
+        </li>
+        <li class="version">
+          <a href="../../next/index.html">next</a>
         </li>
         <li class="version is-latest">
           <a href="../../current/index.html">1.9.0</a>
@@ -138,140 +145,62 @@
   <ul>
     <li><a href="../index.html">IATI Workbench</a></li>
     <li><a href="index.html">Development</a></li>
-    <li><a href="documentation.html">Antora and Asciidoc documentation</a></li>
+    <li><a href="iati.html">IATI files in the engine</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">next</button>
+  <button class="version-menu-toggle" title="Show other versions of page">tools</button>
   <div class="version-menu">
-    <a class="version" href="../../tools/development/documentation.html">tools</a>
-    <a class="version is-current" href="documentation.html">next</a>
-    <a class="version" href="../../current/development/documentation.html">1.9.0</a>
+    <a class="version is-current" href="iati.html">tools</a>
+    <a class="version" href="../../next/development/iati.html">next</a>
+    <a class="version" href="../../current/development/iati.html">1.9.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/development/pages/documentation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/feature/iati-tools/docs/modules/development/pages/iati.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Antora and Asciidoc documentation</h1>
+<h1 class="page">IATI files in the engine</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The repository uses <a href="https://antora.org/">Antora</a> as documentation tool.
-Antora has conventions on how to work with directories.
-Antora uses <a href="https://docs.antora.org/antora/latest/asciidoc/asciidoc/">Asciidoc</a>
-as markup language for documentation pages.</p>
+<p>The convertor has a copy of the IATI codelist files.
+These can be used to look up code values for text strings.</p>
 </div>
 <div class="paragraph">
-<p>In addition, we use a plugin to generate diagrams written for <a href="https://plantuml.com/">PlantUML</a>.
-The system depends on a Docker container running <a href="https://kroki.io/">Kroki</a> to process these diagrams.</p>
+<p>To use this feature, add a call to <code>merge:get-code-from-list()</code>
+defined in <code>lib/iati.me/csvxml-s2i.xslt</code> for an input value.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>We also include a PlantUML configuration file,
-which defines variables that can be used to specify colours for diagram elements.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_antora_setup"><a class="anchor" href="#_antora_setup"></a>Antora setup</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Antora generates a static website for technical documentation.
-It makes it easy to generate documentation for multiple versions.</p>
-</div>
-<div class="paragraph">
-<p>We use the "current" version (on branch main)
-as well as a "next" version (on branch develop).</p>
-</div>
-<div class="paragraph">
-<p>The file <code>antora/playbook.yml</code> contains the specification for the documentation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>content: sources: branches</code> parameter specifies which git branches to include.</p>
-</li>
-<li>
-<p>The <code>main</code> branch will be published as <code>current</code>,
-the <code>develop</code> branch as <code>next</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The file <code>package.json</code> contains the necessary dependencies to run Antora.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_running_locally"><a class="anchor" href="#_running_locally"></a>Running locally</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>After installing developer depencies, create a local copy of the documentation:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>$ npm run docs:local</pre>
+<pre class="highlightjs highlight"><code class="language-xslt hljs" data-lang="xslt">merge:get-code-from-list('ActivityStatus', 'implementation')
+&lt;!-- returns '2' --&gt;
+
+merge:get-code-from-list('ActivityStatus', '3')
+&lt;!-- returns '3' --&gt;</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>This will start a local Docker service for Kroki, and generate the documentation.
-The resulting site can be accessed via:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ open build/site/index.html</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If the branch <code>main</code> or <code>develop</code> is checked out in git,
-the local documentation will be created from the sources on disk.</p>
-</div>
-<div class="paragraph">
-<p>It will include changes not yet committed to git.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_running_on_github"><a class="anchor" href="#_running_on_github"></a>Running on Github</h2>
+<h2 id="_updating_the_code_list_files"><a class="anchor" href="#_updating_the_code_list_files"></a>Updating the code list files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The file <code>.github/workflows/generate-site</code> contains a Github Action,
-to generate the documentation and publish it via Github Pages.</p>
+<p>The codelist files are stored in a single directory.</p>
 </div>
 <div class="paragraph">
-<p>It is triggered by pushed to either the branches <code>develop</code> or <code>main</code>.
-The resulting site is pushed to the <code>gh-pages</code> branch, and published.</p>
+<p>To update them, copy new versions of the files from the <code>xml</code> directories of the
+<a href="https://github.com/IATI/IATI-Codelists" class="bare">github.com/IATI/IATI-Codelists</a> and
+<a href="https://github.com/IATI/IATI-Codelists-NonEmbedded" class="bare">github.com/IATI/IATI-Codelists-NonEmbedded</a> IATI repositories.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="testing.html">Xspec tests</a></span>
-  <span class="next"><a href="version-release.html">Version releases</a></span>
+  <span class="prev"><a href="version-release.html">Version releases</a></span>
+  <span class="next"><a href="../spreadsheets2iati/index.html">Spreadsheets2IATI</a></span>
 </nav>
 </article>
   </div>
