@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Xspec tests :: IATI workbench</title>
-    <link rel="prev" href="index.html">
-    <link rel="next" href="documentation.html">
+    <title>IATI files in the engine :: IATI workbench</title>
+    <link rel="prev" href="version-release.html">
+    <link rel="next" href="../spreadsheets2iati/index.html">
     <meta name="generator" content="Antora 3.0.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -29,7 +29,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="iati-workbench" data-version="next">
+<div class="nav-container" data-component="iati-workbench" data-version="1.9.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -58,7 +58,7 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Development</a>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="testing.html">Xspec tests</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -67,7 +67,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="version-release.html">Version releases</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="iati.html">IATI files in the engine</a>
   </li>
 </ul>
@@ -108,17 +108,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IATI Workbench</span>
-    <span class="version">next</span>
+    <span class="version">1.9.0</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="../../current/index.html">IATI Workbench</a>
       <ul class="versions">
-        <li class="version is-current">
-          <a href="../index.html">next</a>
-        </li>
         <li class="version is-latest">
-          <a href="../../current/index.html">1.9.0</a>
+          <a href="../../current/index.html">1.9.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.9.0</a>
         </li>
       </ul>
     </li>
@@ -135,140 +135,61 @@
   <ul>
     <li><a href="../index.html">IATI Workbench</a></li>
     <li><a href="index.html">Development</a></li>
-    <li><a href="testing.html">Xspec tests</a></li>
+    <li><a href="iati.html">IATI files in the engine</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">next</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="testing.html">next</a>
-    <a class="version" href="../../current/development/testing.html">1.9.0</a>
+    <a class="version" href="../../current/development/iati.html">1.9.1</a>
+    <a class="version is-current" href="iati.html">1.9.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/development/pages/testing.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/development/pages/iati.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Xspec tests</h1>
+<h1 class="page">IATI files in the engine</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The XSLT transformations can be unit tested with the <a href="https://xspec.io/" target="_blank" rel="noopener">Xspec framework</a>.
-The Xspec library is included as git submodule under <code>lib/xspec</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_test_setup"><a class="anchor" href="#_test_setup"></a>Test setup</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The main test scenarios are organised under <code>tests/</code>.</p>
+<p>The convertor has a copy of the IATI codelist files.
+These can be used to look up code values for text strings.</p>
 </div>
 <div class="paragraph">
-<p>Each main scenario includes smaller subsets in subfolders.</p>
-</div>
-<div class="paragraph">
-<p>The main  <code>build.xml</code> file contains calls to test each of the main scenarios.</p>
-</div>
-<div class="paragraph">
-<p>To run all tests:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ aida-s2i tests</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It is also possible to run the tests in "silent mode".
-This will only show the totals for the test results.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ aida-s2i -S tests</pre>
-</div>
+<p>To use this feature, add a call to <code>merge:get-code-from-list()</code>
+defined in <code>lib/iati.me/csvxml-s2i.xslt</code> for an input value.</p>
 </div>
 <div class="listingblock">
-<div class="title">Typical output of a silent run of the tests</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Running /home/username/bin/aida-s2i -S tests
+<pre class="highlightjs highlight"><code class="language-xslt hljs" data-lang="xslt">merge:get-code-from-list('ActivityStatus', 'implementation')
+&lt;!-- returns '2' --&gt;
 
-Buildfile: /home/iati-workbench/build.xml
-Testing lib-csvxml-s2i.xspec [t]
-
-passed: 32 / pending: 4 / failed: 0 / total: 36
-Testing merge-activities.xspec [t]
-
-passed: 23 / pending: 0 / failed: 0 / total: 23
-Testing default-templates.xspec [t]
-
-passed: 65 / pending: 0 / failed: 0 / total: 65
-Xspec result files: tmp/csvxml-s2i-result.html;tmp/default-templates-result.html;tmp/lib-csvxml-s2i-result.html;tmp/merge-activities-result.html;tmp/merge-generated-files-result.html</code></pre>
+merge:get-code-from-list('ActivityStatus', '3')
+&lt;!-- returns '3' --&gt;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_test_reports"><a class="anchor" href="#_test_reports"></a>Test reports</h2>
+<h2 id="_updating_the_code_list_files"><a class="anchor" href="#_updating_the_code_list_files"></a>Updating the code list files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The HTML reports of the test results are copied into the <code>tmp/</code> directory of the workspace.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_scenarios"><a class="anchor" href="#_scenarios"></a>Scenarios</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The <a href="https://github.com/xspec/xspec/wiki">Xspec wiki</a> has documentation about writing scenarios.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>default-templates.xspec</code> scenario imports tests for all different input files.</p>
+<p>The codelist files are stored in a single directory.</p>
 </div>
 <div class="paragraph">
-<p>This requires setting the proper filename as XSLT parameter for each type of input file.</p>
-</div>
-<div class="paragraph">
-<p>To do this, we add the <code>&lt;x:param&gt;</code> in each scenario,
-but also have to include the attribute <code>run-as="external"</code> in the main scenario.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>An Xspec test scenario can only process test one XSLT file.
-This file is specified in the <code>&lt;x:description stylesheet="&#8230;&#8203;"&gt;</code> attribute of that scenario.</p>
-</div>
-<div class="paragraph">
-<p>Xspec files imported in a main scenario have their own stylesheet attribute.
-However, these are ignored when running the main scenario.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>To update them, copy new versions of the files from the <code>xml</code> directories of the
+<a href="https://github.com/IATI/IATI-Codelists" class="bare">github.com/IATI/IATI-Codelists</a> and
+<a href="https://github.com/IATI/IATI-Codelists-NonEmbedded" class="bare">github.com/IATI/IATI-Codelists-NonEmbedded</a> IATI repositories.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Development</a></span>
-  <span class="next"><a href="documentation.html">Antora and Asciidoc documentation</a></span>
+  <span class="prev"><a href="version-release.html">Version releases</a></span>
+  <span class="next"><a href="../spreadsheets2iati/index.html">Spreadsheets2IATI</a></span>
 </nav>
 </article>
   </div>

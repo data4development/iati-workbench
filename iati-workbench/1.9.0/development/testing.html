@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Antora and Asciidoc documentation :: IATI workbench</title>
-    <link rel="prev" href="testing.html">
-    <link rel="next" href="version-release.html">
+    <title>Xspec tests :: IATI workbench</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="documentation.html">
     <meta name="generator" content="Antora 3.0.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -29,7 +29,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="iati-workbench" data-version="next">
+<div class="nav-container" data-component="iati-workbench" data-version="1.9.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -58,10 +58,10 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Development</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="testing.html">Xspec tests</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="documentation.html">Antora and Asciidoc documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -108,17 +108,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IATI Workbench</span>
-    <span class="version">next</span>
+    <span class="version">1.9.0</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="../../current/index.html">IATI Workbench</a>
       <ul class="versions">
-        <li class="version is-current">
-          <a href="../index.html">next</a>
-        </li>
         <li class="version is-latest">
-          <a href="../../current/index.html">1.9.0</a>
+          <a href="../../current/index.html">1.9.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.9.0</a>
         </li>
       </ul>
     </li>
@@ -135,35 +135,94 @@
   <ul>
     <li><a href="../index.html">IATI Workbench</a></li>
     <li><a href="index.html">Development</a></li>
-    <li><a href="documentation.html">Antora and Asciidoc documentation</a></li>
+    <li><a href="testing.html">Xspec tests</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">next</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="documentation.html">next</a>
-    <a class="version" href="../../current/development/documentation.html">1.9.0</a>
+    <a class="version" href="../../current/development/testing.html">1.9.1</a>
+    <a class="version is-current" href="testing.html">1.9.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/development/pages/documentation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/development/pages/testing.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Antora and Asciidoc documentation</h1>
+<h1 class="page">Xspec tests</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The repository uses <a href="https://antora.org/">Antora</a> as documentation tool.
-Antora has conventions on how to work with directories.
-Antora uses <a href="https://docs.antora.org/antora/latest/asciidoc/asciidoc/">Asciidoc</a>
-as markup language for documentation pages.</p>
+<p>The XSLT transformations can be unit tested with the <a href="https://xspec.io/" target="_blank" rel="noopener">Xspec framework</a>.
+The Xspec library is included as git submodule under <code>lib/xspec</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_setup"><a class="anchor" href="#_test_setup"></a>Test setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main test scenarios are organised under <code>tests/</code>.</p>
 </div>
 <div class="paragraph">
-<p>In addition, we use a plugin to generate diagrams written for <a href="https://plantuml.com/">PlantUML</a>.
-The system depends on a Docker container running <a href="https://kroki.io/">Kroki</a> to process these diagrams.</p>
+<p>Each main scenario includes smaller subsets in subfolders.</p>
+</div>
+<div class="paragraph">
+<p>The main  <code>build.xml</code> file contains calls to test each of the main scenarios.</p>
+</div>
+<div class="paragraph">
+<p>To run all tests:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i tests</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to run the tests in "silent mode".
+This will only show the totals for the test results.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -S tests</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Typical output of a silent run of the tests</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Running /home/username/bin/aida-s2i -S tests
+
+Buildfile: /home/iati-workbench/build.xml
+Testing lib-csvxml-s2i.xspec [t]
+
+passed: 32 / pending: 4 / failed: 0 / total: 36
+Testing merge-activities.xspec [t]
+
+passed: 23 / pending: 0 / failed: 0 / total: 23
+Testing default-templates.xspec [t]
+
+passed: 65 / pending: 0 / failed: 0 / total: 65
+Xspec result files: tmp/csvxml-s2i-result.html;tmp/default-templates-result.html;tmp/lib-csvxml-s2i-result.html;tmp/merge-activities-result.html;tmp/merge-generated-files-result.html</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_reports"><a class="anchor" href="#_test_reports"></a>Test reports</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The HTML reports of the test results are copied into the <code>tmp/</code> directory of the workspace.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scenarios"><a class="anchor" href="#_scenarios"></a>Scenarios</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://github.com/xspec/xspec/wiki">Xspec wiki</a> has documentation about writing scenarios.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -173,64 +232,18 @@ The system depends on a Docker container running <a href="https://kroki.io/">Kro
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We also include a PlantUML configuration file,
-which defines variables that can be used to specify colours for diagram elements.</p>
+<p>The <code>default-templates.xspec</code> scenario imports tests for all different input files.</p>
+</div>
+<div class="paragraph">
+<p>This requires setting the proper filename as XSLT parameter for each type of input file.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we add the <code>&lt;x:param&gt;</code> in each scenario,
+but also have to include the attribute <code>run-as="external"</code> in the main scenario.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_antora_setup"><a class="anchor" href="#_antora_setup"></a>Antora setup</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Antora generates a static website for technical documentation.
-It makes it easy to generate documentation for multiple versions.</p>
-</div>
-<div class="paragraph">
-<p>We use the "current" version (on branch main)
-as well as a "next" version (on branch develop).</p>
-</div>
-<div class="paragraph">
-<p>The file <code>antora/playbook.yml</code> contains the specification for the documentation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>content: sources: branches</code> parameter specifies which git branches to include.</p>
-</li>
-<li>
-<p>The <code>main</code> branch will be published as <code>current</code>,
-the <code>develop</code> branch as <code>next</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The file <code>package.json</code> contains the necessary dependencies to run Antora.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_running_locally"><a class="anchor" href="#_running_locally"></a>Running locally</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>After installing developer depencies, create a local copy of the documentation:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ npm run docs:local</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This will start a local Docker service for Kroki, and generate the documentation.
-The resulting site can be accessed via:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ open build/site/index.html</pre>
-</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -240,34 +253,22 @@ The resulting site can be accessed via:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the branch <code>main</code> or <code>develop</code> is checked out in git,
-the local documentation will be created from the sources on disk.</p>
+<p>An Xspec test scenario can only process test one XSLT file.
+This file is specified in the <code>&lt;x:description stylesheet="&#8230;&#8203;"&gt;</code> attribute of that scenario.</p>
 </div>
 <div class="paragraph">
-<p>It will include changes not yet committed to git.</p>
+<p>Xspec files imported in a main scenario have their own stylesheet attribute.
+However, these are ignored when running the main scenario.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_running_on_github"><a class="anchor" href="#_running_on_github"></a>Running on Github</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The file <code>.github/workflows/generate-site</code> contains a Github Action,
-to generate the documentation and publish it via Github Pages.</p>
-</div>
-<div class="paragraph">
-<p>It is triggered by pushed to either the branches <code>develop</code> or <code>main</code>.
-The resulting site is pushed to the <code>gh-pages</code> branch, and published.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="testing.html">Xspec tests</a></span>
-  <span class="next"><a href="version-release.html">Version releases</a></span>
+  <span class="prev"><a href="index.html">Development</a></span>
+  <span class="next"><a href="documentation.html">Antora and Asciidoc documentation</a></span>
 </nav>
 </article>
   </div>
