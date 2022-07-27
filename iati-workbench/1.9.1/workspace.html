@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introduction :: IATI workbench</title>
-    <link rel="next" href="workspace.html">
+    <title>Workspaces :: IATI workbench</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="ant-results.html">
     <meta name="generator" content="Antora 3.0.3">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -28,7 +29,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="iati-workbench" data-version="1.9.0">
+<div class="nav-container" data-component="iati-workbench" data-version="1.9.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -37,11 +38,11 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Introduction</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="workspace.html">Workspaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -107,17 +108,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IATI Workbench</span>
-    <span class="version">1.9.0</span>
+    <span class="version">1.9.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="../current/index.html">IATI Workbench</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../current/index.html">1.9.1</a>
+          <a href="../current/index.html">next</a>
         </li>
         <li class="version is-current">
-          <a href="index.html">1.9.0</a>
+          <a href="index.html">1.9.1</a>
         </li>
       </ul>
     </li>
@@ -134,154 +135,166 @@
   <ul>
     <li><a href="index.html">IATI Workbench</a></li>
     <li><a href="index.html">Introduction</a></li>
+    <li><a href="workspace.html">Workspaces</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.1</button>
   <div class="version-menu">
-    <a class="version" href="../current/index.html">1.9.1</a>
-    <a class="version is-current" href="index.html">1.9.0</a>
+    <a class="version" href="../current/workspace.html">next</a>
+    <a class="version is-current" href="workspace.html">1.9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/develop/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/data4development/iati-workbench/edit/main/docs/modules/ROOT/pages/workspace.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Introduction</h1>
-<div id="preamble">
+<h1 class="page">Workspaces</h1>
+<div class="sect1">
+<h2 id="_workspace_location"><a class="anchor" href="#_workspace_location"></a>Workspace location</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The IATI Workbench provides a platform with tools to work with IATI data.</p>
+<p>When running within a Docker container, the scripts use the directory</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/workspace/</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>This version contains a Spreadsheets2IATI convertor.</p>
+<p>as the starting point for all subdirectories with data.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>This section describes the general setup and structure.</p>
-</li>
-<li>
-<p>The <a href="development/index.html" class="xref page">Development</a> section contains developer-specific tools and backgrounds.</p>
-</li>
-<li>
-<p>The <a href="spreadsheets2iati/index.html" class="xref page">Spreadsheets2IATI</a> section deals with the setup of the convertor
-to turn spreadsheets and existing IATI files into new IATI data files.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When running via the helper script,
+the current directory is mounted into this location.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To use a subdirectory in the workspace,
+the environment property <code>workspace</code> should be set.</p>
+</div>
+<div class="paragraph">
+<p>When running within the container:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ant -Dworkspace=clientA &lt;target&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using the container image with the calling script:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ aida-s2i -xml -w clientA &lt;target&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The workspace name can contain multiple levels.</p>
+</div>
+<div class="sect2">
+<h3 id="_running_on_a_local_machine"><a class="anchor" href="#_running_on_a_local_machine"></a>Running on a local machine</h3>
+<div class="paragraph">
+<p>Consider you have a local machine set up with a directory structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-treeview hljs" data-lang="treeview">~/workspaces
+├── clientA
+│   ├── config
+│   ├── dest
+│   ├── input
+│   ├── output
+│   ├── reports
+│   ├── src
+│   ├── tmp
+│   ├── build.xml
+│   ├── .gitignore
+│   └── README.adoc
+├── clientB
+│   └── ...workspace dirs...
+└── ...other clients...</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_option_1_go_into_each_client_directory_and_run_aida_s2i_there"><a class="anchor" href="#_option_1_go_into_each_client_directory_and_run_aida_s2i_there"></a>Option 1: go into each client directory and run aida-s2i there</h4>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd ~/workspaces/clientA
+$ aida-s2i ...</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_option_2_run_aida_s2i_with_w_from_the_main_workspaces_directory"><a class="anchor" href="#_option_2_run_aida_s2i_with_w_from_the_main_workspaces_directory"></a>Option 2: run aida-s2i with -w from the main workspaces directory</h4>
+<div class="literalblock">
+<div class="content">
+<pre>$ cd ~/workspaces
+$ aida-s2i -w s2i/clientA ...</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_running_the_workbench"><a class="anchor" href="#_running_the_workbench"></a>Running the workbench</h2>
+<h2 id="_workspace_structure"><a class="anchor" href="#_workspace_structure"></a>Workspace structure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The workbench uses two approaches to working with IATI data:</p>
+<p>The directories within the workspace have grown organically,
+mostly starting out as intermediate "pipes" between steps.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Run as a Docker container</dt>
+<dt class="hdlist1">config</dt>
 <dd>
-<p>It runs all the necessary software within an isolated environment.</p>
+<p>Configuration files for the workspace.</p>
 </dd>
-<dt class="hdlist1">Run as a software build tool</dt>
+<dt class="hdlist1">dest</dt>
 <dd>
-<p>It transforms input <em>source files</em> into output <em>compiled files</em>,
-via one or more <em>targets</em>.</p>
+<p>(not used; for validation pipelines)</p>
+</dd>
+<dt class="hdlist1">input</dt>
+<dd>
+<p>User-supplied input files</p>
+</dd>
+<dt class="hdlist1">output</dt>
+<dd>
+<p>Deliverable files (for s2i in limited use)</p>
+</dd>
+<dt class="hdlist1">reports</dt>
+<dd>
+<p>Output to be presented to the user (for s2i not used?)</p>
+</dd>
+<dt class="hdlist1">src</dt>
+<dd>
+<p>IATI source files (output of S2I, input for validation etc)</p>
+</dd>
+<dt class="hdlist1">tmp</dt>
+<dd>
+<p>Temporary files, using filename extensions as "sub stages".
+Cleared with <code>aida-s2i clean</code> to reprocess input files.</p>
 </dd>
 </dl>
-</div>
-<div class="sect2">
-<h3 id="_run_as_a_docker_container"><a class="anchor" href="#_run_as_a_docker_container"></a>Run as a Docker container</h3>
-<div class="paragraph">
-<p>The main code is intended to be used as Docker container.
-This container should have a <em>workspace directory</em> mounted,
-where data and configuration files are stored.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The container can be used as command-line tool, using a helper script.</p>
-<div class="paragraph">
-<p>In this case, you will build your own container image,
-and use it within a directory on your local machine via a helper script.</p>
-</div>
-</li>
-<li>
-<p>It can also be used in a cloud environment, with an appropriate sidecar or wrapper.</p>
-<div class="paragraph">
-<p>In this case, you will need to add an appropriate API, and file and process handling yourself.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>This documentation describes the first scenario.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_run_as_software_build_tool"><a class="anchor" href="#_run_as_software_build_tool"></a>Run as software build tool</h3>
-<div class="paragraph">
-<p>The tools are split into steps of a "compilation pipeline".
-The steps in the pipeline are typically small scripts and XSLT transformations.</p>
-</div>
-<div class="paragraph">
-<p>We use Ant as orchestration tool.
-Other orchestration systems would be possible too.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_quick_start_on_a_local_machine"><a class="anchor" href="#_quick_start_on_a_local_machine"></a>Quick start on a local machine</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>For now, you need to follow the steps for <a href="development/index.html#_setting_up_a_development_environment" class="xref page">Setting up a development environment</a>.
-This will create a local Docker container image,
-and make the helper script available.</p>
-</div>
-<div class="paragraph">
-<p>You can then run the engine in a container on your local machine,
-using the helper script.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create a test workspace directory and go into that directory</p>
-<div class="literalblock">
-<div class="content">
-<pre>$ mkdir ~/test-workspace &amp;&amp; cd ~/test-workspace</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Create the structure of workspace directories, and add the demo spreadsheet templates.</p>
-<div class="literalblock">
-<div class="content">
-<pre>$ aida-s2i add-templates</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Run your first conversion</p>
-<div class="literalblock">
-<div class="content">
-<pre>$ aida-s2i spreadsheet-iati</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The generated IATI files will be placed in the <code>src/</code> directory in your workspace.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="workspace.html">Workspaces</a></span>
+  <span class="prev"><a href="index.html">Introduction</a></span>
+  <span class="next"><a href="ant-results.html">Ant results</a></span>
 </nav>
 </article>
   </div>
