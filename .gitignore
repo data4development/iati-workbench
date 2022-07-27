@@ -9,3 +9,4 @@ lib/saxon*
 /.config/
 /.cache/
 /build/
+/workspace/output/*.graphml
