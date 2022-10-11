@@ -31,6 +31,14 @@ and change the script to use `greadlink`.
 https://stackoverflow.com/questions/1055671/how-can-i-get-the-behavior-of-gnus-readlink-f-on-a-mac[See this StackOverflow question.]
 ====
 
+=== Install requirements
++
+  $ sudo apt install docker
+  $ sudo apt install docker-compose
+  $ sudo apt install antora
+  $ alias antora='npx antora'
+
+
 === Set up a development environment
 
 . Clone the repository, make sure to include the submodules:
@@ -39,7 +47,7 @@ https://stackoverflow.com/questions/1055671/how-can-i-get-the-behavior-of-gnus-r
 
 . Optional: put the `aida-s2i` script in your path, for instance as a symlink:
 +
-  $ ln -s ${PWD}/aida-s2i ~/bin/aida-s2i
+  $ ln -s ${PWD}/aida-s2i /bin/aida-s2i
 
 . Optional: create a local version of the documentation:
 +

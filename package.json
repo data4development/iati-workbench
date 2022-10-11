@@ -6,12 +6,12 @@
   "private": true,
   "devDependencies": {
     "@antora/lunr-extension": "^1.0.0-alpha.8",
-    "antora": "^3.0.3",
+    "antora": "^3.1.1",
     "asciidoctor-kroki": "^0.15.4",
     "standard-version": "^9.3.2"
   },
   "scripts": {
-    "predocs:local": "docker-compose -p antora up -d",
+    "predocs:local": "sudo docker-compose -p antora up -d",
     "docs:local": "antora --attribute kroki-server-url=http://localhost:8000 antora/playbook.yml",
     "docs": "antora antora/playbook.yml"
   },
